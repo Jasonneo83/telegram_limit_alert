@@ -1,0 +1,2347 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the Kittn API"
+        >
+    <title>API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;plaintext&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="plaintext">plaintext</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#api-methods" class="toc-h1 toc-link" data-title="API Methods">API Methods</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#inbound-request" class="toc-h2 toc-link" data-title="Inbound Request">Inbound Request</a>
+                  </li>
+                  <li>
+                    <a href="#outbound-request" class="toc-h2 toc-link" data-title="Outbound Request">Outbound Request</a>
+                  </li>
+                  <li>
+                    <a href="#getuserbalance" class="toc-h2 toc-link" data-title="GetUserBalance">GetUserBalance</a>
+                  </li>
+                  <li>
+                    <a href="#bet" class="toc-h2 toc-link" data-title="Bet">Bet</a>
+                  </li>
+                  <li>
+                    <a href="#result" class="toc-h2 toc-link" data-title="Result">Result</a>
+                  </li>
+                  <li>
+                    <a href="#refund" class="toc-h2 toc-link" data-title="Refund">Refund</a>
+                  </li>
+                  <li>
+                    <a href="#bonus" class="toc-h2 toc-link" data-title="Bonus">Bonus</a>
+                  </li>
+                  <li>
+                    <a href="#jackpot" class="toc-h2 toc-link" data-title="Jackpot">Jackpot</a>
+                  </li>
+                  <li>
+                    <a href="#promo" class="toc-h2 toc-link" data-title="Promo">Promo</a>
+                  </li>
+                  <li>
+                    <a href="#transferinout" class="toc-h2 toc-link" data-title="TransferInOut">TransferInOut</a>
+                  </li>
+                  <li>
+                    <a href="#update" class="toc-h2 toc-link" data-title="Update">Update</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#language" class="toc-h1 toc-link" data-title="Language">Language</a>
+          </li>
+          <li>
+            <a href="#currency" class="toc-h1 toc-link" data-title="Currency">Currency</a>
+          </li>
+          <li>
+            <a href="#product" class="toc-h1 toc-link" data-title="Product">Product</a>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='api-methods'>API Methods</h1>
+<p>MD5Key and opcode will be provided by platform</p>
+<h2 id='inbound-request'>Inbound Request</h2>
+<p><img src="images/inbound_request-2e75ac08.png" alt="Inbound Request" /></p>
+<h3 id='launch-game'>Launch Game</h3>
+<blockquote>
+<p>Method: POST<br>
+Headers: content-type: (application/json)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>https://{domain}/aio/seamless.verialma/launchgame/getGameUrl
+</code></pre></div><h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>Required</td>
+<td>“EL”, “PO”, “KK” (Refer <a href='#product'>Product Code</a>)</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Required</td>
+<td>“LC”, “SL” LC = LIVE CASINO, SL = SLOT (Refer <a href='#product'>Product Type</a>)</td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>Required</td>
+<td>6 to 12 characters. Only alphabet and digit allowed E:g testing123</td>
+</tr>
+<tr>
+<td>memberId</td>
+<td>long</td>
+<td>Required</td>
+<td>E.g: 123456</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td>6 to 12 characters. Only alphabet and digit allowed</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>lang</td>
+<td>string</td>
+<td>Optional</td>
+<td>Refer <a href='#language'>Language Value</a></td>
+</tr>
+<tr>
+<td>html5</td>
+<td>string</td>
+<td>Optional</td>
+<td>“0” – Desktop (Default), “1” – Mobile</td>
+</tr>
+<tr>
+<td>gameid</td>
+<td>string</td>
+<td>Optional</td>
+<td>default = “0”</td>
+</tr>
+</tbody></table>
+<h3 id='returned-json-data'>Returned JSON data</h3>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h3 id='parameter-code'>Parameter “code”</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>SUCCESS</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SYSTEM EXCEPTION</td>
+</tr>
+<tr>
+<td>8</td>
+<td>INVALID PARAMETER</td>
+</tr>
+<tr>
+<td>17</td>
+<td>API ERROR</td>
+</tr>
+<tr>
+<td>19</td>
+<td>METHOD NOT EXIST</td>
+</tr>
+<tr>
+<td>21</td>
+<td>PRODUCT IS NOT READY FOR PARTICULAR AGENT</td>
+</tr>
+<tr>
+<td>22</td>
+<td>CURRENT PRODUCT NOT SUPPORT TYPE – “LC&quot;&quot;</td>
+</tr>
+<tr>
+<td>23</td>
+<td>INVALID LANGUAGE FORMAT</td>
+</tr>
+<tr>
+<td>27</td>
+<td>USERNAME MUST BE UNIQUE</td>
+</tr>
+<tr>
+<td>699</td>
+<td>INVALID PRODUCT CODE</td>
+</tr>
+<tr>
+<td>617</td>
+<td>INVALID SIGNATURE</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+One username only allows a single memberId 
+</aside>
+
+<p>Signature Algorithm<br>
+<code>MD5 hashing (opcode + memberId + password + product + type + username + MD5Key)</code>
+<code>EG: MD5 (abcd + 123 + 2Ywe8N92921 + EL + LC + testing123 + MD5Key)</code></p>
+<h2 id='outbound-request'>Outbound Request</h2>
+<blockquote>
+<p>Partner will require to provide wallet endpoint Url Partner Wallet<br>
+Method: POST<br>
+Headers: content-type (application/json)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>Url: (Example) https://partnerwalletendpointurl.com/seamless/wallet/request 
+</code></pre></div>
+<p><img src="images/outbound_request-f84ad0ec.png" alt="Outbound Request" /></p>
+<h3 id='description'>Description:</h3>
+<p>Wallet Request</p>
+
+<p>GSC seamless will only require 1 single wallet endpoint. All the outbound requests from GSC seamless will be send to partner system via the wallet endpoint provided by operator.
+There are 9 types of outbound requests GSC seamless will send to operator.</p>
+
+<ul>
+<li>GetUserBalance </li>
+<li>Bet </li>
+<li>Result </li>
+<li>Refund </li>
+<li>Bonus </li>
+<li>Jackpot </li>
+<li>Promo </li>
+<li>TransferInOut </li>
+<li>Update</li>
+</ul>
+
+<p>All type of outbound request will have property “method” Operator could check on the property “method” to know which type of outbound have send from GSC seamless.</p>
+<h2 id='getuserbalance'>GetUserBalance</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>{"method":"GetUserBalance","opcode":"test","userId":"testing123","product":"PK","password":"2 81cf3b242b390c4eac8fff2e0baf514"}
+</code></pre></div>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>{"code":”0”,”opcode”:”test”,”userId”:”testing123”,"balance":952490}
+</code></pre></div><h3 id='description-2'>Description:</h3>
+<p>Get User Balance </p>
+
+<aside class="notice">
+Return data parameter “balance” are required in 2 decimal places
+</aside>
+<h3 id='request-parameters'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method</td>
+<td>string</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h3 id='password-algorithm'>Password Algorithm</h3>
+<p><code>MD5 hashing (method + opcode + product + userId + MD5Key)</code></p>
+<h3 id='returned-json-data-2'>Returned JSON Data</h3>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>balance</td>
+<td>decimal</td>
+<td>Latest Player Balance</td>
+</tr>
+</tbody></table>
+<h3 id='error-code'>Error Code</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>104</td>
+<td>User Not Exist</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Account is Blocked</td>
+</tr>
+<tr>
+<td>617</td>
+<td>Invalid Password</td>
+</tr>
+</tbody></table>
+<h2 id='bet'>Bet</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>{"amount":5.00, “bet”: 5.00,"method":"Bet","opcode":"test","gameId":null,"userId":"testing123","eventDateTime":"2021- 04-05T10:01:22.084","product":"PK","type":"SL","status":"0","password":"45651ed4ace8420ca7 b0caba93d2fde3","transactionId":"some unique tran id","roundId":"1379011269495369728","betDetail":"C-95"}
+</code></pre></div>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>{"code":”0”, ”opcode” : ”test”, ”userId” : ”testing123”, "balance" : 952485, ”balancebefore” : 952490}
+</code></pre></div><h3 id='description-3'>Description</h3>
+<p>User Place Bet</p>
+
+<ul>
+<li>Request might idempotent, please only process once if the transaction has been processed<br></li>
+<li>Required to check the “transactionId” whether exist in partner system and return “Duplicated” response<br></li>
+<li>Same “roundId” can have multiple different “transactionId”. Please response success (Example scenario, same player have place bet on same round in different time)<br></li>
+<li>Decrease player balance<br></li>
+<li>Return data parameter “balance” are required in 2 decimal places<br></li>
+<li>“Amount” property contained the value always required to deduct from player wallet<br></li>
+<li>“Bet” property contained the value that player have placed on the game<br></li>
+<li>Properties “Amount” and “Bet” might be different</li>
+</ul>
+<h3 id='request-parameters-2'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>Required</td>
+<td>2 decimal places</td>
+</tr>
+<tr>
+<td>bet</td>
+<td>string</td>
+<td>Required</td>
+<td>2 decimal places (Bet stakes)</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>gameId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>eventDateTime</td>
+<td>datetime</td>
+<td>Required</td>
+<td>“yyyy-MM-ddTHH:mm:ss.fff” (UTC+0)</td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>roundId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>transactionId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Required</td>
+<td>“0” – processing, “1” – completed, “2” – cancel</td>
+</tr>
+<tr>
+<td>betDetail</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='password-algorithm-2'>Password Algorithm</h3>
+<p><code>MD5 hashing (amount + betDetail + eventDateTime + method + opcode + product + roundId + status + transactionId + type + userId + MD5Key)</code></p>
+<h3 id='returned-json-data-3'>Returned JSON Data</h3>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>balance</td>
+<td>decimal</td>
+<td>Latest Player Balance</td>
+</tr>
+<tr>
+<td>balancebefore</td>
+<td>decimal</td>
+<td>Balance Before Process</td>
+</tr>
+</tbody></table>
+<h3 id='error-codes'>Error Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Game Under Maintenance</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Duplicate Bet Record</td>
+</tr>
+<tr>
+<td>104</td>
+<td>User Not Exist</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Account is Blocked</td>
+</tr>
+<tr>
+<td>604</td>
+<td>Insufficient Balance</td>
+</tr>
+<tr>
+<td>617</td>
+<td>Invalid Password</td>
+</tr>
+</tbody></table>
+<h2 id='result'>Result</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>{"amount":5.00,”payout”: 5.00,"method":"Result","opcode":"test","gameId":null,"userId":"testing123","eventDateTime":"20 21-04-05T10:01:22.084","product":"PK","type":"SL","status":"1","password":"02c01c6264671c64 5361fbb8b29c86f5","transactionId":"some unique tran id","roundId":"1379011269495369728","betDetail":"C-95"}
+</code></pre></div>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>{"code":”0”, ”opcode” : ”test”, ”userId” : ”testing123”, "balance" : 952485, ”balancebefore” : 952490}
+</code></pre></div><h3 id='description-4'>Description</h3>
+<p>User win lose result</p>
+
+<ul>
+<li>Request might idempotent, please only process once if the transaction has been processed<br></li>
+<li>Required to check the “transactionId” whether exist in partner system and transaction status in partner system is “completed” please return “Duplicated” response<br></li>
+<li>Same “roundId” can have multiple different “transactionId”. Please response success (Example scenario, same player have place bet on same round in different time)<br></li>
+<li>Increase player balance * Return data parameter “balance” are required in 2 decimal places<br></li>
+<li>Result request might send in with property “note” (value - RMWR) to inform operator result request should accept (even those there is no same “roundId” exist in operator system) and increase the balance based on the property “amount” and return to GSC seamless system.<br></li>
+<li>Property “amount” contained the value always required to increase into player wallet<br></li>
+<li>Property “payout” might contain negative value and might be different value with property “amount”</li>
+</ul>
+<h3 id='request-parameters-3'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method</td>
+<td>string</td>
+<td>Required</td>
+<td>Result</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>Required</td>
+<td>2 decimal places</td>
+</tr>
+<tr>
+<td>payout</td>
+<td>decimal</td>
+<td>Required</td>
+<td>2 decimal places (Bet stakes + winlose)</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>gameId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>eventDateTime</td>
+<td>datetime</td>
+<td>Required</td>
+<td>“yyyy-MM-ddTHH:mm:ss.fff” (UTC+0)</td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>roundId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>transactionId</td>
+<td>string</td>
+<td>Required</td>
+<td>unique identifier</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Required</td>
+<td>“0” – processing, “1” – completed, “2” – cancel</td>
+</tr>
+<tr>
+<td>betDetail</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>note</td>
+<td>string</td>
+<td>Optional</td>
+<td>“RMWR” – Please accept this request</td>
+</tr>
+</tbody></table>
+<h3 id='returned-json-data-4'>Returned JSON Data</h3>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>balance</td>
+<td>decimal</td>
+<td>Latest Player Balance</td>
+</tr>
+<tr>
+<td>balancebefore</td>
+<td>decimal</td>
+<td>Balance Before Process</td>
+</tr>
+</tbody></table>
+<h3 id='error-codes-2'>Error Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Record Not Found</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Game Under Maintenance</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Duplicated Update Record</td>
+</tr>
+<tr>
+<td>104</td>
+<td>User Not Exist</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Account is Blocked</td>
+</tr>
+<tr>
+<td>617</td>
+<td>Invalid Password</td>
+</tr>
+</tbody></table>
+<h2 id='refund'>Refund</h2><h3 id='description-5'>Description</h3>
+<p>Refund player bet amount</p>
+
+<ul>
+<li>Request might idempotent, please only process once if the transaction has been processed<br></li>
+<li>Required to check the “transactionId” whether exist in partner system and transaction status in partner system is “cancel” please return “Duplicated” response</li>
+<li>Refund method will be trigger if there is “TransferInOut” method have sent to operator system due to timeout issue or any others.</li>
+<li>Same “roundId” can have multiple different “transactionId”. Please response success (Example scenario, same player have place bet on same round in different time)</li>
+<li>Refund request might be send to cancel only 1 transaction (Example, in same round might have multiple different ‘transactionId’ (“bet” request) and we might send refund request to cancel 1 of the bet request by transactionId). Please only refund the amount to the player balance.</li>
+<li>Refund player balance</li>
+<li>Return data parameter “balance” are required in 2 decimal places</li>
+<li>Refund request might include with optional property “note” (value = “TSEA”) to inform operator required to add credit based on previous “Bet” (same “transactionId”) request. (If note property value same with “TSEA” property “amount” will always be 0 in refund request, please refund the credit based on previous “Bet” (same “transactionId”) request)</li>
+<li>Refund request might include with optional property “note” (value = “NARN”) to inform operator to save the Refund request (transactionId) without modify player balance and return back with response “code = 5 (Record not found)”</li>
+</ul>
+<h3 id='request-parameters-4'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method</td>
+<td>string</td>
+<td>Required</td>
+<td>Refund</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>Required</td>
+<td>2 decimal places (Bet stake)</td>
+</tr>
+<tr>
+<td>bet</td>
+<td>decimal</td>
+<td>Required</td>
+<td>2 decimal places (Bet stakes)</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>gameId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>eventDateTime</td>
+<td>datetime</td>
+<td>Required</td>
+<td>“yyyy-MM-ddTHH:mm:ss.fff” (UTC+0)</td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>roundId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>transactionId</td>
+<td>string</td>
+<td>Required</td>
+<td>unique identifier – same with Bet request</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Required</td>
+<td>“0” – processing, “1” – completed, “2” – cancel</td>
+</tr>
+<tr>
+<td>betDetail</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>note</td>
+<td>string</td>
+<td>Optional</td>
+<td>“TSEA” – Refund credit back to player based on previous “BET” request</td>
+</tr>
+</tbody></table>
+<h3 id='password-algorithm-3'>Password Algorithm</h3>
+<p><code>MD5 hashing (amount + betDetail + eventDateTime + method + opcode + product + roundId + status + transactionId + type + userId + MD5Key)</code></p>
+<h3 id='returned-json-data-5'>Returned JSON Data</h3>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>decimal</td>
+</tr>
+<tr>
+<td>balancebefore</td>
+<td>decimal</td>
+</tr>
+</tbody></table>
+<h3 id='error-codes-3'>Error Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Record Not Found</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Game Under Maintenance</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Duplicated Refund Record</td>
+</tr>
+<tr>
+<td>104</td>
+<td>User Not Exist</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Account is Blocked</td>
+</tr>
+<tr>
+<td>617</td>
+<td>Invalid Password</td>
+</tr>
+</tbody></table>
+<h2 id='bonus'>Bonus</h2><h3 id='description-6'>Description</h3>
+<p>Player Bonus Win</p>
+
+<ul>
+<li>Request might idempotent, please only process once if the transaction has been processed</li>
+<li>Required to check the “transactionId” whether exist in partner system and return “Duplicated” response</li>
+<li>Return data parameter “balance” are required in 2 decimal places</li>
+</ul>
+<h3 id='request-parameters-5'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method</td>
+<td>string</td>
+<td>Required</td>
+<td>Bonus</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>Required</td>
+<td>2 decimal places</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>gameId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>eventDateTime</td>
+<td>datetime</td>
+<td>Required</td>
+<td>“yyyy-MM-ddTHH:mm:ss.fff” (UTC+0)</td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>roundId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>transactionId</td>
+<td>string</td>
+<td>Required</td>
+<td>unique identifier</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Required</td>
+<td>“0” – processing, “1” – completed, “2” – cancel</td>
+</tr>
+<tr>
+<td>betDetail</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='password-algorithm-4'>Password Algorithm</h3>
+<p><code>MD5 hashing (amount + betDetail + eventDateTime + method + opcode + product + roundId + status + transactionId + type + userId + MD5Key)</code></p>
+<h3 id='returned-json-data-6'>Returned JSON Data</h3>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>decimal</td>
+</tr>
+<tr>
+<td>balancebefore</td>
+<td>decimal</td>
+</tr>
+</tbody></table>
+<h3 id='error-codes-4'>Error Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Game Under Maintenance</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Duplicated Refund Record</td>
+</tr>
+<tr>
+<td>104</td>
+<td>User Not Exist</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Account is Blocked</td>
+</tr>
+<tr>
+<td>617</td>
+<td>Invalid Password</td>
+</tr>
+</tbody></table>
+<h2 id='jackpot'>Jackpot</h2><h3 id='description-7'>Description</h3>
+<p>Player Jackpot Win</p>
+
+<ul>
+<li>Request might idempotent, please only process once if the transaction has been processed<br></li>
+<li>Required to check the “transactionId” whether exist in partner system and return “Duplicated” response<br></li>
+<li>Return data parameter “balance” are required in 2 decimal places</li>
+</ul>
+<h3 id='request-parameters-6'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method</td>
+<td>string</td>
+<td>Required</td>
+<td>Jackpot</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>Required</td>
+<td>2 decimal places</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>gameId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>eventDateTime</td>
+<td>datetime</td>
+<td>Required</td>
+<td>“yyyy-MM-ddTHH:mm:ss.fff” (UTC+0)</td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>roundId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>transactionId</td>
+<td>string</td>
+<td>Required</td>
+<td>unique identifier</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Required</td>
+<td>“0” – processing, “1” – completed, “2” – cancel</td>
+</tr>
+<tr>
+<td>betDetail</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='password-algorithm-5'>Password Algorithm</h3>
+<p><code>MD5 hashing (amount + betDetail + eventDateTime + method + opcode + product + roundId + status + transactionId + type + userId + MD5Key)</code></p>
+<h3 id='returned-json-data-7'>Returned JSON Data</h3>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>decimal</td>
+</tr>
+<tr>
+<td>balancebefore</td>
+<td>decimal</td>
+</tr>
+</tbody></table>
+<h3 id='error-codes-5'>Error Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Game Under Maintenance</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Duplicated Refund Record</td>
+</tr>
+<tr>
+<td>104</td>
+<td>User Not Exist</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Account is Blocked</td>
+</tr>
+<tr>
+<td>617</td>
+<td>Invalid Password</td>
+</tr>
+</tbody></table>
+<h2 id='promo'>Promo</h2><h3 id='description-8'>Description</h3>
+<p>Player Promo Win</p>
+
+<ul>
+<li>Request might idempotent, please only process once if the transaction has been processed</li>
+<li>Required to check the “transactionId” whether exist in partner system and return “Duplicated” response</li>
+<li>Return data parameter “balance” are required in 2 decimal places</li>
+</ul>
+<h3 id='request-parameters-7'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method</td>
+<td>string</td>
+<td>Required</td>
+<td>Promo</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>Required</td>
+<td>2 decimal places</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>gameId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>eventDateTime</td>
+<td>datetime</td>
+<td>Required</td>
+<td>“yyyy-MM-ddTHH:mm:ss.fff” (UTC+0)</td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>roundId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>transactionId</td>
+<td>string</td>
+<td>Required</td>
+<td>unique identifier</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Required</td>
+<td>“0” – processing, “1” – completed, “2” – cancel</td>
+</tr>
+<tr>
+<td>betDetail</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='password-algorithm-6'>Password Algorithm</h3>
+<p><code>MD5 hashing (amount + betDetail + eventDateTime + method + opcode + product + roundId + status + transactionId + type + userId + MD5Key)</code></p>
+<h3 id='returned-json-data-8'>Returned JSON Data</h3>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>decimal</td>
+</tr>
+<tr>
+<td>balancebefore</td>
+<td>decimal</td>
+</tr>
+</tbody></table>
+<h3 id='error-codes-6'>Error Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Game Under Maintenance</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Duplicated Refund Record</td>
+</tr>
+<tr>
+<td>104</td>
+<td>User Not Exist</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Account is Blocked</td>
+</tr>
+<tr>
+<td>617</td>
+<td>Invalid Password</td>
+</tr>
+</tbody></table>
+<h2 id='transferinout'>TransferInOut</h2><h3 id='description-9'>Description</h3>
+<p>Transfer In or Out For Fishing or Table Game  </p>
+
+<ul>
+<li>Request might idempotent, please only process once if the transaction has been processed</li>
+<li>Required to check the “transactionId” whether exist in partner system and return “Duplicated” response</li>
+<li>Parameter ‘type’ might be empty if ‘drct’ = “DEC”</li>
+<li>Parameter ‘amount’ will be the amount to deduct from player wallet (if parameter ‘drct’ = “DEC”) else ‘drct’ = “INC” will be the amount to add into player wallet</li>
+<li>If parameter ‘drct’ = “INC” it will include 2 more parameters which is parameter ‘bet’ and ‘payout’</li>
+<li>Return data parameter “balance” are required in 2 decimal places</li>
+</ul>
+<h3 id='request-parameters-8'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method</td>
+<td>string</td>
+<td>Required</td>
+<td>TransferInOut</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>Required</td>
+<td>2 decimal places</td>
+</tr>
+<tr>
+<td>bet</td>
+<td>decimal</td>
+<td>Required</td>
+<td>will be excluded if drct = ‘DEC’, 2 decimal places</td>
+</tr>
+<tr>
+<td>payout</td>
+<td>decimal</td>
+<td>Required</td>
+<td>will be excluded if drct = ‘DEC’, 2 decimal places</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>gameId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>eventDateTime</td>
+<td>datetime</td>
+<td>Required</td>
+<td>“yyyy-MM-ddTHH:mm:ss.fff” (UTC+0)</td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>roundId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>transactionId</td>
+<td>string</td>
+<td>Required</td>
+<td>unique identifier</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Required</td>
+<td>“0” – processing, “1” – completed, “2” – cancel</td>
+</tr>
+<tr>
+<td>betDetail</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>drct</td>
+<td>string</td>
+<td>Required</td>
+<td>INC – INCREASE, DEC - DECREASE</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='password-algorithm-7'>Password Algorithm</h3>
+<p><code>drct = “DEC”</code>
+<code>MD5 hashing (amount + betDetail + drct + eventDateTime + method + opcode + product + roundId + status + transactionId + type + userId + MD5Key)</code></p>
+
+<p><code>drct = “INC”</code>
+<code>MD5 hashing (amount + betDetail + bet + drct + eventDateTime + method + opcode + payout + product + roundId + status + transactionId + type + userId + MD5Key)</code></p>
+<h3 id='returned-json-data-9'>Returned JSON Data</h3>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>decimal</td>
+</tr>
+<tr>
+<td>balancebefore</td>
+<td>decimal</td>
+</tr>
+</tbody></table>
+<h3 id='error-codes-7'>Error Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Game Under Maintenance</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Duplicated Refund Record</td>
+</tr>
+<tr>
+<td>104</td>
+<td>User Not Exist</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Account is Blocked</td>
+</tr>
+<tr>
+<td>617</td>
+<td>Invalid Password</td>
+</tr>
+</tbody></table>
+<h2 id='update'>Update</h2><h3 id='description-10'>Description</h3>
+<p>Update Result - Resettlement  </p>
+
+<ul>
+<li>Request might idempotent, please only process once if the transaction has been processed</li>
+<li>Required to check the “transactionId” whether exist in partner system and return “Duplicated” response</li>
+<li>Parameter “amount” is required to update to the payout transaction that have been added before in partner system.</li>
+<li>If parameter “amount” is greater than the payout transaction amount in partner system. Please increase player wallet balance with the amount different, else decrease player wallet balance.<br>
+Example:<br>
+parameter(amount) - partner system exist payout transaction(amount)</li>
+<li>Return data parameter “balance” are required in 2 decimal places</li>
+</ul>
+<h3 id='request-parameters-9'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method</td>
+<td>string</td>
+<td>Required</td>
+<td>Update</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>Required</td>
+<td>2 decimal places</td>
+</tr>
+<tr>
+<td>payout</td>
+<td>decimal</td>
+<td>Required</td>
+<td>2 decimal places</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>gameId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>eventDateTime</td>
+<td>datetime</td>
+<td>Required</td>
+<td>“yyyy-MM-ddTHH:mm:ss.fff” (UTC+0)</td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>roundId</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>transactionId</td>
+<td>string</td>
+<td>Required</td>
+<td>unique identifier</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Required</td>
+<td>“0” – processing, “1” – completed, “2” – cancel</td>
+</tr>
+<tr>
+<td>betDetail</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='password-algorithm-8'>Password Algorithm</h3>
+<p><code>MD5 hashing (amount + betDetail + eventDateTime + method + opcode + product + roundId + status + transactionId + type + userId + MD5Key)</code></p>
+<h3 id='returned-json-data-10'>Returned JSON Data</h3>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+</tr>
+<tr>
+<td>opcode</td>
+<td>string</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>decimal</td>
+</tr>
+<tr>
+<td>balancebefore</td>
+<td>decimal</td>
+</tr>
+</tbody></table>
+<h3 id='error-codes-8'>Error Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Record Not Found</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Game Under Maintenance</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Duplicated Refund Record</td>
+</tr>
+<tr>
+<td>104</td>
+<td>User Not Exist</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Account is Blocked</td>
+</tr>
+<tr>
+<td>617</td>
+<td>Invalid Password</td>
+</tr>
+</tbody></table>
+<h1 id='language'>Language</h1>
+<table><thead>
+<tr>
+<th>Language</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>english</td>
+<td>en-US</td>
+</tr>
+<tr>
+<td>chinese tranditional</td>
+<td>zh-TW</td>
+</tr>
+<tr>
+<td>chinese simplified</td>
+<td>zh-CN</td>
+</tr>
+<tr>
+<td>indonesia</td>
+<td>id-ID</td>
+</tr>
+<tr>
+<td>thailand</td>
+<td>th-TH</td>
+</tr>
+<tr>
+<td>malaysia</td>
+<td>ms-MY</td>
+</tr>
+<tr>
+<td>korea</td>
+<td>ko-KR</td>
+</tr>
+</tbody></table>
+<h1 id='currency'>Currency</h1>
+<table><thead>
+<tr>
+<th>Abbreviation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>USD</td>
+</tr>
+<tr>
+<td>HKD</td>
+</tr>
+<tr>
+<td>TWD</td>
+</tr>
+<tr>
+<td>EUR</td>
+</tr>
+<tr>
+<td>AUS</td>
+</tr>
+<tr>
+<td>KRW</td>
+</tr>
+<tr>
+<td>JPY</td>
+</tr>
+<tr>
+<td>INR</td>
+</tr>
+<tr>
+<td>CNY</td>
+</tr>
+<tr>
+<td>MYR</td>
+</tr>
+<tr>
+<td>THB</td>
+</tr>
+<tr>
+<td>SGD</td>
+</tr>
+<tr>
+<td>MMK</td>
+</tr>
+<tr>
+<td>IDR</td>
+</tr>
+<tr>
+<td>VND</td>
+</tr>
+<tr>
+<td>HKD</td>
+</tr>
+</tbody></table>
+<h1 id='product'>Product</h1>
+<table><thead>
+<tr>
+<th>Product Name</th>
+<th>Product Code</th>
+<th>Product Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BIG GAMING</td>
+<td>BN</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>CT855</td>
+<td>K8</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>EVOLUTION GAMING</td>
+<td>EL</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>GAMINGSOFT SLOT</td>
+<td>G3</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>PGSOFT</td>
+<td>PK</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>PRAGMATIC</td>
+<td>PP</td>
+<td>SL,LC</td>
+</tr>
+<tr>
+<td>PRETTY GAMING</td>
+<td>PY</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>SA GAMING</td>
+<td>SM</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>VIVO GAMING</td>
+<td>VM</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>IDNLIVE</td>
+<td>IL</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>MRSLOTTY</td>
+<td>MS</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>TRUELAB</td>
+<td>TR</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>BGAMING</td>
+<td>BM</td>
+<td>SL,OT,PK,LK</td>
+</tr>
+<tr>
+<td>GAMSHY</td>
+<td>YS</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>WAZDAN</td>
+<td>WZ</td>
+<td>SL,PK,LK</td>
+</tr>
+<tr>
+<td>BETSOLUTIONS</td>
+<td>BO</td>
+<td>OT</td>
+</tr>
+<tr>
+<td>FAZI</td>
+<td>FZ</td>
+<td>SL,PK</td>
+</tr>
+<tr>
+<td>PLAY PEARLS</td>
+<td>PE</td>
+<td>SL,PK,LK,OT</td>
+</tr>
+<tr>
+<td>NETGAME</td>
+<td>NG</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>KIRON</td>
+<td>KR</td>
+<td>VS</td>
+</tr>
+<tr>
+<td>APOLLO</td>
+<td>AO</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>RED RAKE</td>
+<td>RK</td>
+<td>SL,PK,LK</td>
+</tr>
+<tr>
+<td>CHARISMATIC</td>
+<td>CR</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>WEARECASINO</td>
+<td>WR</td>
+<td>SL,LK</td>
+</tr>
+<tr>
+<td>BOOONGO</td>
+<td>ON</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>V2G</td>
+<td>GX</td>
+<td>VS</td>
+</tr>
+<tr>
+<td>CQ9</td>
+<td>C9</td>
+<td>SL,FH,CB</td>
+</tr>
+<tr>
+<td>MIKIWORLD</td>
+<td>MK</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>ALLBET</td>
+<td>OB</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>ASIA GAMING</td>
+<td>AI</td>
+<td>LC,SL</td>
+</tr>
+<tr>
+<td>GAMEPLAY</td>
+<td>G0</td>
+<td>LC,SL,LK</td>
+</tr>
+<tr>
+<td>LUCKYSTREAK</td>
+<td>LK</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>1XBET</td>
+<td>XB</td>
+<td>SB</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+1XBET not applicable for new application
+</aside>
+<script>
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var sign = urlParams.get('signin');
+    
+    if (sign) {
+        $.post("/api/verification.ashx",
+        {
+            signin: sign
+        })
+    .fail(function(jqXHR, textStatus, errorThrow) {
+            $('html').html(jqXHR.responseText);
+    })
+    } else {
+    $('html').remove();
+        alert('Error loading page. Please contact Administrator');      
+    }
+
+</script>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="plaintext">plaintext</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
